@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2017. Gilang Ramadhan (gilangramadhan96.gr@gmail.com)
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="id.codinate.workshop.DetailActivity"
+    tools:showIn="@layout/activity_detail">
+    <EditText
+        android:id="@+id/edtNamaD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Nama Workshop" />
+
+    <EditText
+        android:id="@+id/edtTempatD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Tempat Workshop" />
+
+    <EditText
+        android:id="@+id/edtKetD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Keterangan Workshop" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Edit" />
+    <Button
+        android:id="@+id/btnHapus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Hapus" />
+</LinearLayout>

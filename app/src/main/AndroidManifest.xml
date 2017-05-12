@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2017. Gilang Ramadhan (gilangramadhan96.gr@gmail.com)
-  -->
-
+<?xml version="1.0" encoding="utf-8"?><!-- ~ Copyright (c) 2017. Gilang Ramadhan (gilangramadhan96.gr@gmail.com) -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.codinate.workshop">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,6 +20,24 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".TambahActivity"
+            android:label="@string/title_activity_tambah"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.codinate.workshop.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="id.codinate.workshop.MainActivity" />
         </activity>
     </application>
 

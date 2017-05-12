@@ -7,6 +7,7 @@ package id.codinate.workshop;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getApplicationContext(), TambahActivity.class));
             }
         });
         listView = (ListView) findViewById(R.id.listView);
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private void AmbilData() {
         progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.setMessage("Loading bro");
-        String url = "http://192.168.52.98/techcomfest/workshop.php";
+        String url = "http://192.168.1.15/techcomfest/workshop.php";
         aQuery.progress(progressDialog).ajax(url, String.class, new AjaxCallback<String>() {
                     @Override
                     public void callback(String url, String object, AjaxStatus status) {
@@ -108,9 +110,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setListAdapter(ArrayList<HashMap<String, String>> data) {
+    private void setListAdapter(final ArrayList<HashMap<String, String>> data) {
         CustomAdapter adapter = new CustomAdapter(this, data);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HashMap<String , String > onData = data.get(position);
+                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                intent.putExtra("id", onData.get("id"));
+                intent.putExtra("nama", onData.get("nama"));
+                intent.putExtra("tempat", onData.get("tempat"));
+                intent.putExtra("tanggal", onData.get("tanggal"));
+                intent.putExtra("keterangan", onData.get("keterangan"));
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void pesan(String gagal) {
