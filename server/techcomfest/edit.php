@@ -12,7 +12,7 @@ if(isset($_POST['nama_w']) &&
 	try{
 	  $sql = "UPDATE `workshop` SET 
 	  `nama_workshop` = '".$nama_w."', 
-	  `tempat_workshop` = '".tempat_w."', 
+	  `tempat_workshop` = '".$tempat_w."', 
 	  `ket_workshop` = '".$ket_w."', 
 	  `tanggal_workshop` = '".$tanggal_w."' 
 	  WHERE `workshop`.`id_workshop` = '".$id_w."'";
